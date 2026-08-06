@@ -590,7 +590,7 @@ describe('repo sync action', () => {
     const { core, secrets } = createCoreStub({
       'project-name': 'core-payments',
       'postman-access-token': 'postman-access-token',
-      'sync-generated-assets': 'false',
+      'onboarding-scope': 'spec-only',
       'ssl-client-cert': sslClientCert,
       'environments-json': '["prod"]',
       'system-env-map-json': '{}',
@@ -600,7 +600,7 @@ describe('repo sync action', () => {
 
     const inputs = readActionInputs(core);
 
-    expect(inputs.syncGeneratedAssets).toBe(false);
+    expect(inputs.onboardingScope).toBe('spec-only');
     expect(secrets).toContain(sslClientCert);
   });
 
@@ -2248,7 +2248,7 @@ describe('repo sync action', () => {
           createInputs({
             specId: '',
             specPath: '',
-            syncGeneratedAssets: false,
+            onboardingScope: 'spec-only',
             generateCiWorkflow: false
           }),
           deps(createExportPostmanStub())
@@ -2285,7 +2285,7 @@ describe('repo sync action', () => {
           workspaceId: 'ws-new',
           specId: 'spec-new',
           specPath: 'openapi.yaml',
-          syncGeneratedAssets: false,
+          onboardingScope: 'spec-only',
           generateCiWorkflow: false
         }),
         deps(createExportPostmanStub())
@@ -2325,7 +2325,7 @@ describe('repo sync action', () => {
           githubRefName: 'feature/spec-only',
           specId: 'spec-preview',
           specPath: 'openapi.yaml',
-          syncGeneratedAssets: false,
+          onboardingScope: 'spec-only',
           generateCiWorkflow: false
         }),
         deps(createExportPostmanStub())
@@ -2879,7 +2879,7 @@ describe('repo sync action', () => {
       createInputs({
         specId: 'spec-new',
         specPath: 'openapi.yaml',
-        syncGeneratedAssets: false
+        onboardingScope: 'spec-only'
       }),
       {
         core: createCoreStub().core,

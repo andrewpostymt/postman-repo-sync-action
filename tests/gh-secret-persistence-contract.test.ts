@@ -263,7 +263,7 @@ describe('persistSslSecrets — argv/stdin/GH_TOKEN/env contract', () => {
   it('does not persist SSL secrets when generated assets are disabled', async () => {
     const actionCore = { info: vi.fn(), warning: vi.fn() };
     const inputs = baseInputs({
-      syncGeneratedAssets: false,
+      onboardingScope: 'spec-only',
       sslClientCert: 'CERT-B64',
       sslClientKey: 'KEY-B64',
       githubToken: 'ghp_ssl_token'

@@ -454,7 +454,7 @@ describe('runCli credential preflight seam', () => {
           '--postman-access-token', 'tok-only',
           '--team-id', '333',
           '--org-mode', 'true',
-          '--sync-generated-assets', 'false',
+          '--onboarding-scope', 'spec-only',
           '--credential-preflight', 'warn',
           '--repo-write-mode', 'none'
         ],
